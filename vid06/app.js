@@ -8,7 +8,7 @@ io.on('connection', function(client) {
 
     client.on('messages', function(data) {
         var nickname = client.nickname;
-        client.broadcast.emit("message", nickame + ": " + message);
+        client.broadcast.emit("message", nickname + ": " + message);
 
         client.emit("messages", nickname  + ": " + message);
     });
