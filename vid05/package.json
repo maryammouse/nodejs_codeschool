@@ -1,0 +1,8 @@
+{
+  "name": "My-App",
+  "version": "1",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "4.9.6"
+  }
+}
