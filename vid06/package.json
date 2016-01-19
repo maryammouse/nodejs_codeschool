@@ -1,0 +1,8 @@
+{
+  "name": "My-App",
+  "version": "1",
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.4.4"
+  }
+}
