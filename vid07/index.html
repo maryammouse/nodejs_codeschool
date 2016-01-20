@@ -1,0 +1,27 @@
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    var server = io.connect('http://localhost:8080');
+    server.on()('messages', function(data){
+        insertMessage(data);
+    });
+
+server.on('connect', function(data) {
+    $('#status').html('Connected to chattr');
+    nickname = prompt("What is your nickname?");
+    server.emit('join', nickname);
+});
+server.on('add chatter', function(name) {
+    var chatter = $('<li>' + name + '</li>').data('name', name);
+    $('#chatters').append(chatter);
+});
+
+server.on('remove chatter', function(name) {
+    $('#chatters li[data-name=' + name + ']').remove();
+});
+
+$('#chat_form').submit(function(e) {
+    var message = $('#chat_input').val();
+    server.broadcast.emit('messages', message);
+});
+</script>
